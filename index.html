@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+  /********/
+
+/*CSS*/
+
+/********/
+
+/*imported typeface*/
+
+@font-face {
+  font-family: Arcade;
+  src: url("ARCADE.TTF");
+}
+
+/*--general styling--*/
+
+html {
+  width: 75%;
+  margin: auto;
+
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #566270;
+}
+
+h1 {
+  font-family: 'Roboto', sans-serif;
+  font-size: xx-large;
+  font-weight: 200;
+  letter-spacing: 4px;
+  color: #e8e9e1;
+  text-shadow: 1px 2px 1px #48484c;
+}
+
+h2 {
+  font-family: "Arcade", sans-serif;
+  font-size: xx-large;
+  font-weight: 200;
+  letter-spacing: 4px;
+  color: #c7dc65;
+  text-shadow: 1px 2px 2px #48484c;
+
+}
+
+h3 {
+  font-family: "Arcade", sans-serif;
+  font-size: medium;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #e8e9e1;
+  text-shadow: 1px 2px 2px #48484c;
+  text-align: center
+}
+
+p,
+span {
+  font-family: 'Roboto', sans-serif;
+  font-size: small;
+  font-weight: 200;
+  letter-spacing: 2px;
+  color: #e8e9e1;
+}
+
+input,
+button {
+  background: none;
+  border: none;
+  font-size: 1em;
+  color: grey;
+  cursor: pointer;
+}
+
+i {
+  font-size: xx-large;
+  color: #e8e9e1;
+}
+
+
+/*---responsive grid layout---*/
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: minmax(100px, auto);
+  grid-template-areas: "hd" "iP" "hI" "hCS" "cSU" "pre" "ft";
+}
+
+header {
+  grid-area: hd;
+}
+
+#introPage {
+  grid-area: iP;
+}
+
+.headerInst {
+  grid-area: hI;
+}
+
+.headerCanvasSetup {
+  grid-area: hCS;
+}
+
+.canSetUp {
+  grid-area: cSU;
+}
+
+#preview {
+  grid-area: pre;
+}
+
+footer {
+  grid-area: ft;
+  background-color: #c54d57;
+  box-shadow: 2px 4px 10px #48484c;
+}
+
+/*---header---*/
+
+header {
+
+  background-color: #c54d57;
+  box-shadow: 2px 4px 10px #48484c;
+}
+
+.headerWrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.logo {
+  grid-column: 1/2;
+  justify-self: start;
+  align-self: center;
+
+}
+
+.appName,
+.appName > span:first-of-type,
+.appName > span:nth-of-type(2n) {
+  font-family: "Arcade", sans-serif;
+  grid-column: 3/4;
+  text-align: right;
+  font-weight: 600;
+  text-transform: full-width;
+  font-size: 3em;
+}
+
+.appName > span:first-of-type {
+  font-size: 1.5em;
+  color: #566270;
+}
+
+
+/*---intro page---*/
+
+#introPage {
+  display: grid;
+  background-attachment: fixed;
+  background-color: #566270;
+}
+
+.introTitle {
+  grid-column: 1/2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 4em 0 4em 4em;
+  justify-content: center;
+}
+
+.titleFirst {
+  grid-column: 1/4;
+  grid-row: 1/2;
+  justify-self: start;
+  align-self: end;
+  font-weight: 800;
+  font-size: 2em;
+  letter-spacing: 6px;
+}
+
+.titleFirst > sub {
+  font-family: "Arcade", sans-serif;
+  font-weight: 200;
+  color: #59c3be;
+  letter-spacing: 0px;
+  font-size: 0.75em;
+}
+
+.titleSecond {
+  font-family: "Arcade", sans-serif;
+  grid-column: 1/2;
+  grid-row: 2/3;
+  font-size: 6em;
+  margin: 0;
+  padding: 0;
+  font-weight: 100;
+  letter-spacing: 6px;
+  line-height: 0.1em;
+  color: #59c3be;
+  font-style: oblique;
+  text-shadow: 1px 2px 1px #48484c;
+  justify-self: center;
+  align-self: start;
+}
+
+.titleThird > h1 {
+
+  grid-column: 3/4;
+  margin: 0;
+  padding: 0;
+  font-size: medium;
+  font-weight: 800;
+  letter-spacing: 4px;
+  color: #e8e9e1;
+  text-shadow: 1px 2px 1px #48484c;
+  justify-self: end;
+  align-self: center;
+}
+
+.titleThird > h1:first-of-type {
+  text-indent: 2em;
+}
+
+video {
+  grid-column: 2/4;
+  justify-self: center;
+  align-self: center;
+  padding 1em;
+}
+
+
+/*---game setup page---*/
+
+#gameSetUp,
+#canvasSetUp {
+  background-color: #c54d57;
+  box-shadow: 2px 4px 10px #48484c
+}
+
+.headerInst,
+.headerCanvasSetup {
+  background-color: #f16a6c;
+  box-shadow: 2px 4px 10px #48484c;
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+  padding: 1em 1em 0;
+}
+
+
+#instButton,
+#setUpButton {
+  color: #e8e9e1;
+}
+
+#setUpButton > h2,
+#instButton > h2 {
+  justify-self: end;
+  align-self: center;
+  padding: 0;
+  margin: 0;
+  text-align: right;
+  font-size: xx-large;
+  color: #e8e9e1;
+}
+
+/*hidden*/
+
+.hide {
+  visibility: hidden;
+}
+
+.show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+.instructions {
+  background-color: #c54d57;
+  box-shadow: 1px 1px 3px #48484c;
+  height: ;
+  z-index: 1;
+  overflow-x: hidden;
+  -webkit-transition: all .25s ease;
+  -moz-transition: all .25s ease;
+  -ms-transition: all .25s ease;
+  -o-transition: all .25s ease;
+  transition: all .25s ease;
+  padding: 1em;
+  display: none;
+}
+
+.instWrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.stepOne,
+.stepThree,
+.stepTwo,
+.stepFour {
+  padding: 1em;
+}
+
+.stepTwo,
+.stepFour {
+  align-content: center;
+}
+
+.stepOne,
+.stepTwo,
+.stepThree {
+  border-right: 2px solid #e8e9e1;
+}
+
+.stepOne > p,
+.stepThree > p {
+
+  padding: 0;
+  justify-self: end;
+  text-align: right;
+}
+
+.stepTwo > p,
+.stepFour > p {
+  grid-column: 1/3;
+  justify-self: end;
+  text-align: left;
+  align-self: center;
+}
+
+.stepOne > p:first-of-type,
+.stepThree > p:first-of-type {
+  font-family: "Arcade", sans-serif;
+  font-size: medium;
+  font-weight: 600;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.stepTwo > p:first-of-type,
+.stepFour > p:first-of-type {
+  font-family: "Arcade", sans-serif;
+  font-size: medium;
+  font-weight: 600;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.stepOne > p:nth-of-type(2n),
+.stepThree > p:nth-of-type(2n) {
+  font-size: x-small;
+  font-family: 'Montserrat', sans-serif;
+  text-align: left;
+
+
+}
+
+.stepTwo > p:nth-of-type(2n),
+.stepFour > p:nth-of-type(2n) {
+  text-align: right;
+  font-size: x-small;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.stepOneIcon,
+.stepThreeIcon {
+  grid-row: 1/3;
+  animation: fadeIn;
+  animation-duration: 2400ms;
+  justify-self: center;
+}
+
+.stepTwoIcon,
+.stepFourIcon {
+  grid-column: 3/4;
+  align-self: end;
+  justify-self: center;
+}
+
+
+
+/*-----------canvas setup--------------------*/
+
+.canSetUpWrapper {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 2fr 3fr 2fr 1fr;
+  grid-template-rows: 2;
+  grid-template-areas: "caM . sPM . coM";
+  justify-content: center;
+
+}
+
+.canvasMenu {
+  grid-area: caM;
+  align-self: end;
+}
+
+#canvasMenuButton {
+  align-self: end;
+}
+
+.canvasIcon,
+.colorIcon {
+  width: 9em;
+  align-self: end;
+
+}
+
+
+
+.sizePickerMenu {
+  grid-area: sPM;
+  align-self: end;
+}
+
+/*form!*/
+
+#sizePicker {
+  display: grid;
+  grid grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  justify-content: center;
+}
+
+.pickHeight {
+  grid-column: 1/2;
+  grid-row: 2;
+  padding-bottom: 1em;
+  justify-self: center;
+}
+
+.pickWidth {
+  grid-column: 2/3;
+  grid-row: 2;
+  padding-bottom: 1em;
+  justify-self: center;
+}
+
+#sizePicker > h2 {
+  grid-column: 1/3;
+  grid-row: 1/2;
+  font-family: "Arcade", sans-serif;
+  font-size: x-large;
+  font-weight: 600;
+  text-align: center;
+  color: #59c3be;
+  font-style: normal;
+  margin-bottom: 0;
+}
+
+
+input[type=number] {
+  background-color: #f16a6c;
+  color: #e8e9e1;
+  width: 3em;
+  height: 1.5em;
+  text-align: center;
+  font-family: "Arcade", sans-serif;
+font-size: medium;
+}
+
+input[type=number]::-webkit-outer-spin-button {
+  background-color: #e8e9e1;
+  color: #f16a6c;
+
+}
+
+#submitButton {
+  grid-column: 1/3;
+  grid-row: 3;
+  background-color: #59c3be;
+  box-shadow: 1px 1px 3px #48484c;
+  height: 2em;
+  padding: 0.2em;
+  margin: 1em;
+  font-family: "Arcade", sans-serif;
+  font-size: 1.5em;
+  color: #e8e9e1;
+}
+
+.colorMenu {
+  grid-area: coM;
+  align-self: end;
+}
+
+/*---dropdown bars---*/
+
+#game {
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 7fr 1fr;
+  grid-template-areas: "barL  cW  barR"
+}
+
+.barLeft {
+  grid-area: barL;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.barRight {
+  grid-area: barR;
+}
+
+.barRight > h3 {
+  border-bottom: 1px solid #e8e9e1;
+  padding: 0.5em;
+  margin: 0
+}
+
+barRight > h3:nth-of-type(2n) {
+  border-top: 2px solid #e8e9e1;
+}
+
+.bar {
+  z-index: 1;
+  box-shadow: 1px 1px 3px #48484c;
+  background-color: #59c3be;
+  height: 100%;
+}
+
+.barHiddenL,
+.barHiddenR {
+  display: none;
+}
+
+.barLeft > button {
+  display: block;
+  width: 100%;
+  height: 5em;
+  padding: 1em;
+}
+
+.slotA {
+  border-bottom: 1px solid #e8e9e1;
+}
+
+.slotB {
+  border-bottom: 3px solid #e8e9e1;
+}
+
+i {
+  font-size: 3em;
+  color: #e8e9e1;
+
+}
+
+.barLeft > button:hover > i,
+.square:hover {
+  cursor: pointer;
+  transform: scale(1.5);
+}
+
+/*tooltips*/
+
+.tooltip {
+  padding: 5px;
+  align-content: center;
+  text-align: center;
+}
+
+.tooltiptext {
+  font-family: 'Roboto', sans-serif;
+  font-size: xx-small;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #e8e9e1;
+
+}
+
+
+/*cell size button*/
+
+.cellSize {
+  padding: 1em;
+}
+
+.square {
+  display: inline-flex;
+  border: 1px solid #fff;
+}
+
+.cellS {
+  grid-column: 1;
+  width: 10px;
+  height: 10px;
+}
+
+.cellM {
+  grid-column: 2;
+  width: 15px;
+  height: 15px;
+}
+
+.cellL {
+  width: 20px;
+  height: 20px;
+}
+
+.cellSize:hover {
+  cursor: pointer;
+}
+
+/*canvas background button*/
+
+.canvasBkg {
+  background-color: #e8e9e1;
+
+}
+
+/*toggle lines button*/
+
+.hiddenLines {
+  border-color: transparent;
+}
+
+
+
+/*swatches*/
+
+#colorPicker {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  padding: auto;
+  margin: auto;
+  -webkit-appearance: none;
+  background-image: none;
+  color: black;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  height: 3em;
+  width: 3em;
+
+}
+
+.swatchesTitle {
+  border-top: 3px solid #e8e9e1;
+}
+
+.swatches {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+.swatchColor {
+  list-style-type: none;
+  display: block;
+  height: 2em;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+
+}
+
+.swatchColor:hover,
+#colorPicker:hover {
+  transform: scale(1.3);
+  cursor: url("\images\eyedropper-png.png"), pointer;
+}
+
+/*---the game page---*/
+
+#theGame {
+  grid-area: game;
+  background-color: #566270;
+
+}
+
+.canvasWrapper {
+  grid-area: cW;
+  justify-content: center;
+  padding: 2em;
+}
+
+.printableCanvas {
+display: flex;
+padding: 5em;
+  margin: 0 auto;
+}
+
+#pixelCanvas {
+  border-collapse: collapse;
+   margin: 0 auto;
+padding: 1em;
+  border: auto solid transparent;
+}
+
+tr,
+td {
+  border: 1px solid #48484c;
+}
+
+tr {
+  height: 15px;
+}
+
+td {
+  width: 15px;
+box-sizing: border-box;
+}
+
+
+
+/*---footer---*/
+
+footer {
+
+  margin: 0;
+  padding: 1em;
+}
+
+footer > p {
+  text-align: right;
+  font-size: xx-small;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  padding-top: 1em;
+  margin: 0;
+  padding-bottom: -1em;
+}
+
+footer > p:first-of-type {
+  border-top: 1px solid #e8e9e1;
+}
+
+.eman {
+  font-size: 20px;
+  font-family: inherit;
+}
+#gameSetUp {
+  display: none;
+}
+#wattson {
+  position: fixed;
+  top: 35%;
+  width: 20%;
+  left: 0;
+  opacity: 0;
+  transition: 0.5s all ease-in-out;
+}
+#wait {
+  position: fixed;
+  top: 50%;
+  left: 15%;
+  font-size: 20px;
+  opacity: 0;
+  transition: 0.5s all ease-in-out;
+}
+audio{
+  opacity: 0;
+}
+/********/
+
+/*THE ᕕ( ᐛ )ᕗ END*/
+
+/********/
+
+  </style>
+    <title>HBD Ya Eman :D</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monoton">
+    <link href="https://fonts.googleapis.com/css?family=Lalezar|Risque" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=El+Messiri" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/build/html2canvas.js"></script>
+    <script src="https://kit.fontawesome.com/cd54b5df47.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <div class="container">
+  		<header>
+  			<div class="headerWrapper">
+  				<img class="logo" src="http://res.cloudinary.com/duc8x03hq/image/upload/v1517472083/logo-png_mef9s8.png" href="logo">
+  				<div></div>
+  				<h2 class="appName">Pixel<span>Art</span>Maker<p class="eman">For You Eman XD</p></h2>
+
+  			</div>
+  		</header>
+
+  		<div id="introPage">
+  			<div class="introTitle">
+  				<h1 class="titleFirst"><sub>[re-] </sub>creating</h1>
+  				<h1 class="titleSecond">art</h1>
+  				<div class="titleThird">
+  					<h1>one</h1>
+  					<h1>square<br>at the<br>time</h1>
+  				</div>
+  			</div>
+  			<video width="auto" height="auto" autoplay loop>
+          <source src="http://res.cloudinary.com/duc8x03hq/video/upload/v1517472084/monalisa_vid_vyg4xi.mp4"> Your browser does not support the video tag.
+        </video>
+  		</div>
+
+  		<div id="gameSetUp">
+  			<div class="headerInst">
+  				<button id="instButton" data-toggle="dropdown">
+            <h2>Instructions</h2>
+            <i class="fas fa-sort-down"></i>
+          </button>
+  			</div>
+
+  			<div class="instructions dropdown">
+
+  				<div class="instWrapper">
+  					<div class="stepOne">
+  						<img class="stepOneIcon" src="http://res.cloudinary.com/duc8x03hq/image/upload/v1517472082/step1-png_hkei9r.png" href="step one">
+  						<p>Define the dimensions for your canvas</p>
+  						<p>To begin; create your canvas. Make it long and high any number of pixels between 5 and 50! </p>
+
+  					</div>
+  					<div class="stepTwo">
+  						<p>PICK THE COLOR TO START WITH.</p>
+  						<p>Choose your color to begin with painting. Your recent colors will be saved in swatches. All of that you can find in the color menu!</p>
+  						<img class="stepTwoIcon" src="http://res.cloudinary.com/duc8x03hq/image/upload/v1517472083/step2-png_ucychc.png" href="step two">
+
+  					</div>
+  					<div class="stepThree">
+  						<img class="stepThreeIcon" src="http://res.cloudinary.com/duc8x03hq/image/upload/v1517472083/step3-png_tl80hx.png" href="step three">
+  						<p>Let your creativity kick in!</p>
+  						<p>To draw, simply drag your mouse in strokes. If you make a mistake; no fear - double click on a pixel, or stroke while holding right-mouse-button should do the trick!</p>
+  						<p>You can adjust your canvas' grid size; change its background color and see it with or without grid lines.</p>
+
+  					</div>
+  					<div class="stepFour">
+  						<p>SAVE YOUR MASTERPIECE!</p>
+  						<p>If you like what you've created, save your <span>masterpiece</span>, so you can show it off. If not - oh well, just scrape it! And don't worry - artists are usually their own worst critics! </p>
+  						<img class="stepFourIcon" src="http://res.cloudinary.com/duc8x03hq/image/upload/v1517472083/step4-png_kbhytz.png" href="step three">
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+
+  		<div id="canvasSetUp">
+  			<div class="headerCanvasSetup">
+  				<button id="setUpButton" data-toggle="dropdown">
+            <h2>Let's draw!</h2>
+              <i class="fas fa-sort-down"></i>
+            </button>
+  			</div>
+
+  			<div class="canSetUp dropdown1">
+  				<div class="canSetUpWrapper">
+  					<div class="canvasMenu">
+  						<button id="canvasMenuButton">
+                                <img class="canvasIcon" src="http://res.cloudinary.com/duc8x03hq/image/upload/v1517472081/icon-canvas-png_sbahmh.png" href="canvas icon">
+                                <i class="fas fa-sort-down"></i>
+                          </button>
+  					</div>
+  					<div class="sizePickerMenu">
+  						<form id="sizePicker">
+  							<h2>Set up your grid ya 3m human</h2>
+
+  							<div class="pickHeight">
+  								<h3>HEIGHT</h3>
+  								<input type="number" id="canvasHeight" name="height" min="5" max="50" value="10">
+  								<img class="xIcon" src="" href="canvas icon">
+  							</div>
+  							<div class="pickWidth">
+  								<h3>WIDTH</h3>
+  								<input type="number" id="canvasWidth" name="width" min="5" max="50" value="10">
+  							</div>
+
+  							<input type="submit" id="submitButton" value="Make your art ysta!">
+  						</form>
+  					</div>
+  					<div class="colorMenu">
+  						<button id="colorMenuButton">
+            <img class="colorIcon" src="http://res.cloudinary.com/duc8x03hq/image/upload/v1517472081/icon-color-png_duacw6.png" href="color icon">
+            <i class="fas fa-sort-down"></i>
+          </button>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+
+  		<div id="game">
+
+  			<div class="barLeft bar barHiddenL">
+  				<button id="paintCanvas" title="Paint canvas" class="slot slotB">
+                  <i class="fas fa-fill-drip"></i>
+                  </button>
+
+  				<div class="cellSize slot slotA" title="Pick cell size">
+  					<span class="cellS square"></span>
+  					<span class="cellM square"></span>
+  					<span class="cellL square"></span>
+  				</div>
+
+  				<button id="clearButton" title="Delete drawing" class="slot slotA">
+                      <i class="fa fa-window-close" aria-hidden="true"></i>
+                  </button>
+  				<button id="canvasBkgColor" title="White canvas ON/OFF" class="slot slotA">
+                      <i class="fas fa-border-all"></i>
+                  </button>
+  				<button id="toggleLinesButton" title="Grid lines ON/OFF" class="slotB">
+                      <i class="fa fa-hashtag" aria-hidden="true"></i>
+                  </button>
+
+  				<button id="deleteCanvasButton" title="Delete canvas" class="slotA">
+                      <i class="far fa-times-circle"></i>
+                  </button>
+
+  				<button id="downloadButton" title="Save" class="slot">
+                      <i class="fas fa-arrow-circle-down"></i>
+                </button>
+  			</div>
+
+  			<div class="canvasWrapper">
+  				<div class="printableCanvas">
+  					<table id="pixelCanvas"></table>
+  				</div>
+  			</div>
+
+  			<div class="barRight bar barHiddenR">
+  				<h3>Pick A Color</h3>
+  				<input type="color" id="colorPicker">
+  				<h3 class="swatchesTitle">Swatches</h3>
+  				<ul class="swatches"></ul>
+  			</div>
+
+  		</div>
+
+
+
+    <table id="pixel_canvas"></table>
+    <!-- start loading -->
+    <section>
+        <canvas id="canvas">Canvas is not supported by your browser.</canvas>
+        <p id="sorry">
+          كل سنه وانتي طيبه ياعم هيوماااااان وان شاء الله تجيبي التقدير اللي انتي عاوزاه عشان تبطلي دح بأه شويه 😂 وبعدين انا مصمم اعرف شلبي شاف ايه 😝😂 بس هنتكلم في ده بعدين ربنا يسعدك في حياتك ان شاء الله وتحققي اللي نفسك فيه
+       </p>
+       <img id="wattson" src="wattson.png" alt="wattson">
+       <p id="wait">استني في جيم عشانك😉</p>
+    </section>
+    <audio autoplay="autoplay" controls="controls">
+            			<source src="song.mp3" type="
+            			audio/mp3">
+            			<source src="song.ogg" type="
+            			audio/ogg">
+            			لو الرساله دي ظهرت يبقي في مشكله عندك في ملف الصوت :(
+      </audio>
+    <!-- End Loading -->
+    <script src="designs.js"></script>
+</body>
+
+</html>
